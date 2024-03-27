@@ -138,8 +138,3 @@ public class CheckoutSolution {
 
     }
 }
-
-
-
-
-
