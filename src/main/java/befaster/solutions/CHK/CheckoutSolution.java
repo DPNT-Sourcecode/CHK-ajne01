@@ -63,6 +63,7 @@ public class CheckoutSolution {
         if(countD >0){
             sum += 15 * countC;
         }
+
         return sum;
 
     }
