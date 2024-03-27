@@ -33,6 +33,9 @@ class CheckoutSolutionTest {
         assertEquals(-1, solution.checkout(smallA));
         assertEquals(-1, solution.checkout(numberZero));
         assertEquals(-1, solution.checkout(specialChar));
+        assertEquals(-1, solution.checkout(""));
+        assertEquals(-1, solution.checkout("   "));
+        assertEquals(-1, solution.checkout(null));
 
     }
 }

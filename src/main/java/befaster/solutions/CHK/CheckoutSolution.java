@@ -9,7 +9,7 @@ import java.util.Map;
 public class CheckoutSolution {
     public Integer checkout(String skus) {
 
-        if(!skus.matches("[A-Z]+")){
+        if(skus == null || skus.isEmpty() || skus.isBlank() || !skus.matches("[A-Z]+")){
             return -1;
         }
 
@@ -67,5 +67,3 @@ public class CheckoutSolution {
 
     }
 }
-
-
