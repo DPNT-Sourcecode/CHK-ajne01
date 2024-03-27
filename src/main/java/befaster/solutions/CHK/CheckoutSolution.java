@@ -5,6 +5,7 @@ import befaster.runner.SolutionNotImplementedException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class CheckoutSolution {
 
@@ -39,7 +40,7 @@ public class CheckoutSolution {
 
     public Integer sum = 0;
 
-    public Map<String, Integer> countItem = new HashMap<>();
+    public ConcurrentHashMap<String, Integer> countItem = new ConcurrentHashMap<>();
     public Integer checkout(String skus) {
 
         if(skus == null || skus.isEmpty() || skus.isBlank()){
@@ -94,11 +95,11 @@ public class CheckoutSolution {
             if(countItem.get("A") >= 5){
                 int quantPromo = (int) Math.floor((double) countItem.get("A") / 5);
                 sum += quantPromo*200;
-                countItem.replace("A", countItem.get("A") - quantPromo*5);
+                countItem.replace("A", countItem.get("A"), countItem.get("A") - quantPromo*5);
             } else if(countItem.get("A") >= 3){
                 int quantPromo = (int) Math.floor((double) countItem.get("A") / 3);
                 sum += quantPromo*130;
-                countItem.replace("A", countItem.get("A") - quantPromo*3);
+                countItem.replace("A", countItem.get("A"), countItem.get("A") - quantPromo*3);
             } else {
                 sum += 50 * countItem.get("A");
                 countItem.replace("A", 0);
@@ -108,10 +109,10 @@ public class CheckoutSolution {
             if (countItem.get("B") >= 2) {
                 int quantPromo = (int) Math.floor((double) countItem.get("B") / 2);
                 sum += quantPromo * 45;
-                countItem.replace("B", countItem.get("B") - countItem.get("B") - quantPromo * 2);
+                countItem.replace("B", countItem.get("B"), countItem.get("B") - countItem.get("B") - quantPromo * 2);
             } else {
                 sum += 30 * countItem.get("B");
-                countItem.replace("B", 0);
+                countItem.replace("B", countItem.get("B"), 0);
             }
         }
 
@@ -119,23 +120,24 @@ public class CheckoutSolution {
             sum += 20 * countItem.get("C");
         }
 
-        if(countItem.get("D") >0){
+        if(countItem.get("D") > 0){
             sum += 15 * countItem.get("D");
         }
 
         while(countItem.get("F") >= 3){
             sum += 20;
-            countItem.replace("F", countItem.get("F") - 3);
+            countItem.replace("F", countItem.get("F"), countItem.get("F") - 3);
         }
 
         if(countItem.get("F") > 0){
             sum += 10 * countItem.get("F");
-            countItem.replace("F", 0);
+            countItem.replace("F", countItem.get("F"), 0);
         }
 
         return sum;
 
     }
 }
+
 
 
