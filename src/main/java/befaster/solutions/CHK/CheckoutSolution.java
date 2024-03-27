@@ -61,6 +61,18 @@ public class CheckoutSolution {
                 }
                 case "C" -> sum += 20 * itemsCount.get(key);
                 case "D" -> sum += 15 * itemsCount.get(key);
+                case "E" -> {
+                    int count = itemsCount.get(key);
+                    if(count >= 2){
+                        int quantPromo = (int) Math.floor((double) count / 2);
+                        sum += quantPromo*45;
+                        int rest = count - quantPromo*2;
+                        sum += rest*30;
+                    } else {
+                        sum += 30*count;
+                    }
+
+                }
 
             }
         }
@@ -71,3 +83,4 @@ public class CheckoutSolution {
 
     }
 }
+
