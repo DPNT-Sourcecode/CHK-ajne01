@@ -40,7 +40,7 @@ public class CheckoutSolution {
 
     public Integer sum = 0;
 
-    public ConcurrentHashMap<String, Integer> countItem = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, Integer> countItem = new ConcurrentHashMap<String, Integer>();
     public Integer checkout(String skus) {
 
         if(skus == null || skus.isEmpty() || skus.isBlank()){
@@ -138,6 +138,7 @@ public class CheckoutSolution {
 
     }
 }
+
 
 
 
