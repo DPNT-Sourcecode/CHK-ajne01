@@ -82,11 +82,11 @@ public class CheckoutSolution {
             if(countItem.get("E") >= 2){
                 Integer count = (int) Math.floor((double) countItem.get("E") / 2);
                 sum += count*2*40;
-                countItem.replace("B", countItem.get("B") - count);
-                countItem.replace("E", countItem.get("E") - count*2);
+                countItem.replace("B", countItem.get("B"), countItem.get("B") - count);
+                countItem.replace("E", countItem.get("E"), countItem.get("E") - count*2);
             } else {
                 sum += countItem.get("E")*40;
-                countItem.replace("E", 0);
+                countItem.replace("E", countItem.get("E"), 0);
             }
         }
 
@@ -102,7 +102,7 @@ public class CheckoutSolution {
                 countItem.replace("A", countItem.get("A"), countItem.get("A") - quantPromo*3);
             } else {
                 sum += 50 * countItem.get("A");
-                countItem.replace("A", 0);
+                countItem.replace("A", countItem.get("A"), 0);
             }
         }
         while(countItem.get("B")>0) {
@@ -138,6 +138,7 @@ public class CheckoutSolution {
 
     }
 }
+
 
 
 
