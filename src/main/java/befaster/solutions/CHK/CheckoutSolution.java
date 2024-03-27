@@ -43,11 +43,11 @@ public class CheckoutSolution {
         if(countA >= 5){
             int quantPromo = (int) Math.floor((double) countA / 5);
             sum += quantPromo*200;
-            countA = countA - quantPromo*5;
+            countA -= quantPromo*5;
         } else if(countA >= 3){
             int quantPromo = (int) Math.floor((double) countA / 3);
             sum += quantPromo*130;
-            countA = countA - quantPromo*3;
+            countA -= quantPromo*3;
         } else {
             sum += 50*countA;
             countA = 0;
@@ -76,3 +76,4 @@ public class CheckoutSolution {
 
     }
 }
+
