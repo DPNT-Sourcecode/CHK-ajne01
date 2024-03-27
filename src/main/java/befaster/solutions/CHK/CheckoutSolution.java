@@ -17,70 +17,55 @@ public class CheckoutSolution {
             return -1;
         }
 
-        String[] items = skus.split("");
+        Integer countA = skus.length() - skus.replace("A", "").length();
+        Integer countB = skus.length() - skus.replace("B", "").length();
+        Integer countC = skus.length() - skus.replace("C", "").length();
+        Integer countD = skus.length() - skus.replace("D", "").length();
+        Integer countE = skus.length() - skus.replace("E", "").length();
 
-        Map<String, Integer> itemsCount = new HashMap<>();
+        if(countE >= 2){
+            Integer discountedB = (int) Math.floor((double) countE / 3);
 
-        for (String item : items) {
-            if (itemsCount.containsKey(item)) {
-                Integer value = itemsCount.get(item);
-                itemsCount.replace(item, value + 1);
-            } else {
-                itemsCount.put(item, 1);
-            }
+            countB -= discountedB;
         }
 
         Integer sum = 0;
 
-        for(Map.Entry<String, Integer> entry : itemsCount.entrySet()){
-            String key = entry.getKey();
-            switch (key){
-                case "A" -> {
-
-                    int count = itemsCount.get(key);
-                    if(count >= 3){
-                        int quantPromo = (int) Math.floor((double) count / 3);
-                        sum += quantPromo*130;
-                        int rest = count - quantPromo*3;
-                        sum += rest*50;
-                    } else {
-                        sum += 50*count;
-                    }
-                }
-                case "B" -> {
-                    int count = itemsCount.get(key);
-                    if(count >= 2){
-                        int quantPromo = (int) Math.floor((double) count / 2);
-                        sum += quantPromo*45;
-                        int rest = count - quantPromo*2;
-                        sum += rest*30;
-                    } else {
-                        sum += 30*count;
-                    }
-
-                }
-                case "C" -> sum += 20 * itemsCount.get(key);
-                case "D" -> sum += 15 * itemsCount.get(key);
-                case "E" -> {
-                    int count = itemsCount.get(key);
-                    if(count >= 2){
-                        int quantPromo = (int) Math.floor((double) count / 2);
-                        sum += quantPromo*45;
-                        int rest = count - quantPromo*2;
-                        sum += rest*30;
-                    } else {
-                        sum += 30*count;
-                    }
-
-                }
-
+        while (countA > 0){
+        if(countA >= 5){
+            int quantPromo = (int) Math.floor((double) countA / 5);
+            sum += quantPromo*200;
+            countA = countA - quantPromo*5;
+        } else if(countA >= 3){
+            int quantPromo = (int) Math.floor((double) countA / 3);
+            sum += quantPromo*130;
+            countA = countA - quantPromo*3;
+        } else {
+            sum += 50*countA;
+            countA = 0;
+        }
+        }
+        while(countB>0) {
+            if (countB >= 2) {
+                int quantPromo = (int) Math.floor((double) countB / 2);
+                sum += quantPromo * 45;
+                countB = countB - quantPromo * 2;
+            } else {
+                sum += 30 * countB;
+                countB = 0;
             }
         }
 
+        if(countC >0){
+            sum += 20 * countC;
+        }
 
-
+        if(countD >0){
+            sum += 15 * countC;
+        }
         return sum;
 
     }
 }
+
 
