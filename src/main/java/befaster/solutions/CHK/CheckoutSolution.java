@@ -22,6 +22,7 @@ public class CheckoutSolution {
         Integer countC = skus.length() - skus.replace("C", "").length();
         Integer countD = skus.length() - skus.replace("D", "").length();
         Integer countE = skus.length() - skus.replace("E", "").length();
+        Integer countF = skus.length() - skus.replace("F", "").length();
 
 
         Integer sum = 0;
@@ -72,8 +73,22 @@ public class CheckoutSolution {
             sum += 15 * countD;
         }
 
+        while(countF >= 3){
+            while(countB>0) {
+                if (countB >= 2) {
+                    int quantPromo = (int) Math.floor((double) countB / 2);
+                    sum += quantPromo * 45;
+                    countB = countB - quantPromo * 2;
+                } else {
+                    sum += 30 * countB;
+                    countB = 0;
+                }
+            }
+        }
+
         return sum;
 
     }
 }
+
 
