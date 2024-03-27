@@ -23,13 +23,21 @@ public class CheckoutSolution {
         Integer countD = skus.length() - skus.replace("D", "").length();
         Integer countE = skus.length() - skus.replace("E", "").length();
 
-        if(countE >= 2){
-            Integer discountedB = (int) Math.floor((double) countE / 3);
-
-            countB -= discountedB;
-        }
 
         Integer sum = 0;
+
+        while(countE > 0){
+            if(countE >= 2){
+                Integer count = (int) Math.floor((double) countE / 2);
+                sum += count*40;
+                countB -= count;
+                countE -= count*2;
+            } else {
+                sum += countE*40;
+                countE=0;
+            }
+        }
+
 
         while (countA > 0){
         if(countA >= 5){
@@ -68,5 +76,6 @@ public class CheckoutSolution {
 
     }
 }
+
 
 
