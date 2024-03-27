@@ -4,6 +4,10 @@ import befaster.runner.SolutionNotImplementedException;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        throw new SolutionNotImplementedException();
+
+        return 0;
+
     }
+
+    record SKU(String Item, int price, String specialOffer){}
 }
