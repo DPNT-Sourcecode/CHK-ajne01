@@ -6,13 +6,15 @@ import java.util.List;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        String[] lineParts = skus.split(",");
-        Integer sum = 0;
-        for(int i = 0; i < lineParts.length; i+=3){
-            SKU sku = new SKU(lineParts[i], Integer.parseInt(lineParts[i+1]), lineParts[i+2]);
 
-            sum += calculateItemPrice(sku);
-        }
+        System.out.println(skus);
+//        String[] lineParts = skus.split(",");
+//        Integer sum = 0;
+//        for(int i = 0; i < lineParts.length; i+=3){
+//            SKU sku = new SKU(lineParts[i], Integer.parseInt(lineParts[i+1]), lineParts[i+2]);
+//
+//            sum += calculateItemPrice(sku);
+//        }
 
         return 0;
 
@@ -29,3 +31,4 @@ public class CheckoutSolution {
 
     record SKU(String Item, int price, String specialOffer){}
 }
+
