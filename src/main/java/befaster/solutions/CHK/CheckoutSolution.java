@@ -74,16 +74,13 @@ public class CheckoutSolution {
         }
 
         while(countF >= 3){
-            while(countB>0) {
-                if (countB >= 2) {
-                    int quantPromo = (int) Math.floor((double) countB / 2);
-                    sum += quantPromo * 45;
-                    countB = countB - quantPromo * 2;
-                } else {
-                    sum += 30 * countB;
-                    countB = 0;
-                }
-            }
+            sum += 20;
+            countF -= 3;
+        }
+
+        if(countF > 0){
+            sum += 10 * countF;
+            countF = 0;
         }
 
         return sum;
