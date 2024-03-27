@@ -42,7 +42,8 @@ class CheckoutSolutionTest {
         assertEquals(160, solution.checkout("EEEEBB"));
         assertEquals(200, solution.checkout("AAAAA"));
         assertEquals(330, solution.checkout("AAAAAAAA"));
-        assertEquals(430, solution.checkout("AAAAAAAAAA"));
+        assertEquals(380, solution.checkout("AAAAAAAAA"));
+        assertEquals(400, solution.checkout("AAAAAAAAAA"));
 
     }
 }

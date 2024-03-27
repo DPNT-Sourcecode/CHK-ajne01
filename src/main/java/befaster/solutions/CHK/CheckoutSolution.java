@@ -39,19 +39,19 @@ public class CheckoutSolution {
         }
 
 
-        while (countA > 0){
-        if(countA >= 5){
-            int quantPromo = (int) Math.floor((double) countA / 5);
-            sum += quantPromo*200;
-            countA -= quantPromo*5;
-        } else if(countA >= 3){
-            int quantPromo = (int) Math.floor((double) countA / 3);
-            sum += quantPromo*130;
-            countA -= quantPromo*3;
-        } else {
-            sum += 50*countA;
-            countA = 0;
-        }
+        while (countA > 0) {
+            if(countA >= 5){
+                int quantPromo = (int) Math.floor((double) countA / 5);
+                sum += quantPromo*200;
+                countA -= quantPromo*5;
+            } else if(countA >= 3){
+                int quantPromo = (int) Math.floor((double) countA / 3);
+                sum += quantPromo*130;
+                countA -= quantPromo*3;
+            } else {
+                sum += 50 * countA;
+                countA = 0;
+            }
         }
         while(countB>0) {
             if (countB >= 2) {
@@ -69,7 +69,7 @@ public class CheckoutSolution {
         }
 
         if(countD >0){
-            sum += 15 * countC;
+            sum += 15 * countD;
         }
 
         return sum;
