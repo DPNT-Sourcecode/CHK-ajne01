@@ -9,6 +9,10 @@ import java.util.Map;
 public class CheckoutSolution {
     public Integer checkout(String skus) {
 
+        if(!skus.matches("[A-Z]+")){
+            return -1;
+        }
+
         String[] items = skus.split("");
 
         Map<String, Integer> itemsCount = new HashMap<>();
