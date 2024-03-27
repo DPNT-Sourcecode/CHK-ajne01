@@ -7,6 +7,39 @@ import java.util.List;
 import java.util.Map;
 
 public class CheckoutSolution {
+
+    Map<String, String> itemsPriceAndDiscounts = new HashMap<>(){{
+        put("A", "50#3:130;5:200");
+        put("B", "30#2:45");
+        put("C", "20");
+        put("D", "15");
+        put("E", "40#2:1B");
+        put("F", "10#2:1F");
+        put("G", "20");
+        put("H", "10#5:45;10:80");
+        put("I", "35");
+        put("J", "60");
+        put("K", "80#2:150");
+        put("L", "90");
+        put("M", "15");
+        put("N", "40#3:1M");
+        put("O", "10");
+        put("P", "50#5:200");
+        put("Q", "30#3:80");
+        put("R", "50#3:1Q");
+        put("S", "30");
+        put("T", "20");
+        put("U", "40#3:1U");
+        put("V", "50#2:90;3:130");
+        put("W", "20");
+        put("X", "90");
+        put("Y", "10");
+        put("Z", "50");
+    }};
+
+    public Integer sum = 0;
+
+    public Map<String, Integer> countItem = new HashMap<>();
     public Integer checkout(String skus) {
 
         if(skus == null || skus.isEmpty() || skus.isBlank()){
@@ -16,8 +49,6 @@ public class CheckoutSolution {
         if(!skus.matches("[A-Z]+")){
             return -1;
         }
-
-        Map<String, Integer> countItem = new HashMap<>();
 
         countItem.put("A", skus.length() - skus.replace("A", "").length());
         countItem.put("B", skus.length() - skus.replace("B", "").length());
@@ -45,10 +76,6 @@ public class CheckoutSolution {
         countItem.put("W", skus.length() - skus.replace("W", "").length());
         countItem.put("Y", skus.length() - skus.replace("Y", "").length());
         countItem.put("Z", skus.length() - skus.replace("Z", "").length());
-
-
-
-        Integer sum = 0;
 
         while(countItem.get("E") > 0){
             if(countItem.get("E") >= 2){
@@ -110,4 +137,5 @@ public class CheckoutSolution {
 
     }
 }
+
 
