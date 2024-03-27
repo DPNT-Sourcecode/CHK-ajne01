@@ -27,9 +27,31 @@ public class CheckoutSolution {
         for(Map.Entry<String, Integer> entry : itemsCount.entrySet()){
             String key = entry.getKey();
             switch (key){
-                case "A" -> ;
-                case "B" -> ;
-                case "C" -> sum += 15 * itemsCount.get(key);
+                case "A" -> {
+
+                    int count = itemsCount.get(key);
+                    if(count >= 3){
+                        int quantPromo = (int) Math.floor((double) count / 3);
+                        sum += quantPromo*130;
+                        int rest = count - quantPromo*3;
+                        sum += rest*50;
+                    } else {
+                        sum += 50*count;
+                    }
+                }
+                case "B" -> {
+                    int count = itemsCount.get(key);
+                    if(count >= 2){
+                        int quantPromo = (int) Math.floor((double) count / 2);
+                        sum += quantPromo*45;
+                        int rest = count - quantPromo*2;
+                        sum += rest*30;
+                    } else {
+                        sum += 30*count;
+                    }
+
+                }
+                case "C" -> sum += 20 * itemsCount.get(key);
                 case "D" -> sum += 15 * itemsCount.get(key);
 
             }
@@ -41,4 +63,5 @@ public class CheckoutSolution {
 
     }
 }
+
 
