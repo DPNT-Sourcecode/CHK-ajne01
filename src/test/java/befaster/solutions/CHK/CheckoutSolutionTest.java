@@ -9,12 +9,7 @@ class CheckoutSolutionTest {
 
     CheckoutSolution solution;
 
-    public static String exampleSKU = """
-            | A    | 50    | 3A for 130     |
-            | B    | 30    | 2B for 45      |
-            | C    | 20    |                |
-            | D    | 15    |                |
-            """;
+    public static String sku100 = "ABC";
     @BeforeEach
     void setUp() {
         solution = new CheckoutSolution();
@@ -22,6 +17,7 @@ class CheckoutSolutionTest {
 
     @Test
     void checkout() {
+        assertEquals(100, solution.checkout(sku100));
 
     }
 }

@@ -2,33 +2,43 @@ package befaster.solutions.CHK;
 
 import befaster.runner.SolutionNotImplementedException;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
 
-        System.out.println(skus);
-//        String[] lineParts = skus.split(",");
-//        Integer sum = 0;
-//        for(int i = 0; i < lineParts.length; i+=3){
-//            SKU sku = new SKU(lineParts[i], Integer.parseInt(lineParts[i+1]), lineParts[i+2]);
-//
-//            sum += calculateItemPrice(sku);
-//        }
+        String[] items = skus.split("");
 
-        return 0;
+        Map<String, Integer> itemsCount = new HashMap<>();
 
-    }
-
-    private Integer calculateItemPrice(SKU sku) {
-        String[] splitted = sku.specialOffer().split(" for ");
-        Integer promoQty = Integer.parseInt(splitted[0].replaceAll("[A-Z]", ""));
-        Integer promoPrice = Integer.parseInt(splitted[1]);
+        for (String item : items) {
+            if (itemsCount.containsKey(item)) {
+                Integer value = itemsCount.get(item);
+                itemsCount.replace(item, value + 1);
+            } else {
+                itemsCount.put(item, 1);
+            }
+        }
 
         Integer sum = 0;
-        return sum;
-    }
 
-    record SKU(String Item, int price, String specialOffer){}
+        for(Map.Entry<String, Integer> entry : itemsCount.entrySet()){
+            String key = entry.getKey();
+            switch (key){
+                case "A" -> ;
+                case "B" -> ;
+                case "C" -> sum += 15 * itemsCount.get(key);
+                case "D" -> sum += 15 * itemsCount.get(key);
+
+            }
+        }
+
+
+
+        return sum;
+
+    }
 }
 
