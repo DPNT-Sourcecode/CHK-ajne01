@@ -22,6 +22,6 @@ class CheckoutSolutionTest {
 
     @Test
     void checkout() {
-        assert
+
     }
 }

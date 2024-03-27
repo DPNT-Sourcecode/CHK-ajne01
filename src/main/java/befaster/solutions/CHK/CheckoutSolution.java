@@ -20,9 +20,12 @@ public class CheckoutSolution {
 
     private Integer calculateItemPrice(SKU sku) {
         String[] splitted = sku.specialOffer().split(" for ");
-        Integer qty = splitted[0].substring()
+        Integer promoQty = Integer.parseInt(splitted[0].replaceAll("[A-Z]", ""));
+        Integer promoPrice = Integer.parseInt(splitted[1]);
+
+        Integer sum = 0;
+        return sum;
     }
 
     record SKU(String Item, int price, String specialOffer){}
 }
-
