@@ -17,12 +17,31 @@ public class CheckoutSolution {
             return -1;
         }
 
-        Integer countA = skus.length() - skus.replace("A", "").length();
-        Integer countB = skus.length() - skus.replace("B", "").length();
-        Integer countC = skus.length() - skus.replace("C", "").length();
-        Integer countD = skus.length() - skus.replace("D", "").length();
-        Integer countE = skus.length() - skus.replace("E", "").length();
-        Integer countF = skus.length() - skus.replace("F", "").length();
+        Map<String, Integer> itemsMap = new HashMap<>();
+
+        itemsMap.put("A", skus.length() - skus.replace("A", "").length());
+        itemsMap.put("B", skus.length() - skus.replace("B", "").length());
+        itemsMap.put("C", skus.length() - skus.replace("C", "").length());
+        itemsMap.put("D", skus.length() - skus.replace("D", "").length());
+        itemsMap.put("E", skus.length() - skus.replace("E", "").length());
+        itemsMap.put("F", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("G", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("H", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("I", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("J", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("F", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("F", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("F", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("F", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("F", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("F", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("F", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("F", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("F", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("F", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("F", skus.length() - skus.replace("F", "").length());
+        itemsMap.put("F", skus.length() - skus.replace("F", "").length());
+
 
 
         Integer sum = 0;
@@ -87,5 +106,6 @@ public class CheckoutSolution {
 
     }
 }
+
 
 
