@@ -29,7 +29,7 @@ public class CheckoutSolution {
         while(countE > 0){
             if(countE >= 2){
                 Integer count = (int) Math.floor((double) countE / 2);
-                sum += count*40;
+                sum += count*2*40;
                 countB -= count;
                 countE -= count*2;
             } else {
@@ -76,6 +76,3 @@ public class CheckoutSolution {
 
     }
 }
-
-
-
