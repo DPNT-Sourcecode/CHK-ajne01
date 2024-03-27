@@ -17,7 +17,7 @@ class HelloSolutionTest {
 
     @Test
     void testHello(){
-            assertFalse(solution.hello("Me").isEmpty());
+            assertEquals("Hello, Me!", solution.hello("Me"));
     }
 
 }
